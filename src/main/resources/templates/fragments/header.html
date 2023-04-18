@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:fragment="navbar">
+  <div class="menu">
+    <div class="logo">
+      <a href="#">Dummy</a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a th:href="@{/login}">Login</a></li>
+      <li><a th:href="@{/signup}" href="#">Signup</a></li>
+    </ul>
+  </div>
+</nav>
+</body>
+</html>
