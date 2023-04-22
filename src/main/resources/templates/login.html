@@ -13,14 +13,14 @@
     <div class="text">
         LOGIN
     </div>
-    <form>
+    <form th:action="@{/login}" method="post" th:object="${user}">
         <div class="field">
             <div class="fas fa-envelope"></div>
-            <input type="text" placeholder="Email or Phone">
+            <input type="text" placeholder="Email or Phone" name="username">
         </div>
         <div class="field">
             <div class="fas fa-lock"></div>
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Password" name="password">
         </div>
         <button>LOGIN</button>
         <div class="link">

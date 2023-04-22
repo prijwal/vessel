@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Form</title>
+    <title th:text="${title}"></title>
     <link th:href="@{/css/signup_style.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -11,15 +11,15 @@
 <div id="login-box">
     <div class="left">
         <h1>Sign up</h1>
-        <form th:action="@{/registerUser}" method="post" th:object="${user}">
+        <form th:action="@{/registerUser}" method="post" th:object="${user}" action="#">
 
-            <input class="form_in" type="text" name="username" placeholder="Username"/>
+<!--            <input class="form_in" type="text" name="name" placeholder="Name"/>-->
 
-            <input class="form_in" type="text" name="email" placeholder="E-mail"/>
+            <input th:value="${user.email}" class="form_in" type="email" name="email" placeholder="E-mail"/>
 
-            <input class="form_in" type="password" name="password" placeholder="Password"/>
+            <input th:value="${user.password}" class="form_in" type="password" name="password" placeholder="Password"/>
 
-            <input class="form_in" type="password" name="password2" placeholder="Retype password"/>
+<!--            <input class="form_in" type="password" name="password2" placeholder="Retype password"/>-->
 
             <button class="signup-btn">Sign me up</button>
 

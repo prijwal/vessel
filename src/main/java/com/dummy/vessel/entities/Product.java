@@ -10,7 +10,7 @@ import lombok.Setter;
 @Table(name = "APP_PRODUCT")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int cId;
     private String name;
     private String category;
@@ -18,7 +18,6 @@ public class Product {
     private String imageUrl;
     private String rating;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
     private User user;
 }

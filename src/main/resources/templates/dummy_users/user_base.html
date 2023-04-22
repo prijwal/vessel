@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="base_fragment(main_body)">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">####</title>
+    <link rel="stylesheet" th:href="@{/css/dummyUsers/user_base.css}">
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="#">Dummy</a>
+    </div>
+
+    <div class="header-icons">
+        <i class="fas fa-bell"></i>
+        <div class="account">
+<!--            <img src="./pic/img.jpg" alt="">-->
+            <h4 th:text="${user.email}"></h4>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <nav>
+        <div class="side_navbar">
+            <span>Main Menu</span>
+            <a th:href="${'user/index'}" href="#" class="active">Dashboard</a>
+            <a href="#">My Products</a>
+            <a th:href="${'/all-products'}" href="#">All products</a>
+            <a href="#">My Account</a>
+            <a href="#">Logout</a>
+
+        </div>
+    </nav>
+
+    <div th:replace="${main_body}"></div></div>
+</body>
+</html>
