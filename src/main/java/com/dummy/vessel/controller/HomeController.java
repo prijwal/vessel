@@ -70,4 +70,20 @@ public class HomeController {
         return "signup";
     }
 
+    @GetMapping("/all-products")
+    public String getAllProducts(Model m, Principal p) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication instanceof UsernamePasswordAuthenticationToken)
+        {
+            String name = p.getName();
+            User user = userDasImpl.getUserByUserName(name);
+            m.addAttribute("user", user);
+        } else {
+            m.addAttribute("user", new User());
+        }
+        System.out.println("#### sign up page");
+        m.addAttribute("title", "all products");
+        return "dummy_users/user_sections/all-products";
+    }
+
 }
