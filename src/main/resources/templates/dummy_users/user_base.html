@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title th:text="${title}">####</title>
-    <link rel="stylesheet" th:href="@{/css/dummyUsers/user_base.css}">
+    <link rel="stylesheet" th:href="@{/css/dummy_users/user_base.css}">
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
@@ -17,7 +17,8 @@
         <i class="fas fa-bell"></i>
         <div class="account">
 <!--            <img src="./pic/img.jpg" alt="">-->
-            <h4 th:text="${user.email}"></h4>
+<!--            <h4 th:text="${"#####"}"></h4>-->
+            <h4>#####</h4>
         </div>
     </div>
 </header>
@@ -25,7 +26,7 @@
     <nav>
         <div class="side_navbar">
             <span>Main Menu</span>
-            <a th:href="${'user/index'}" href="#" class="active">Dashboard</a>
+            <a th:href="${'/user/index'}" href="#" class="active">Dashboard</a>
             <a href="#">My Products</a>
             <a th:href="${'/all-products'}" href="#">All products</a>
             <a href="#">My Account</a>

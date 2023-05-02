@@ -1,0 +1,399 @@
+/*  import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: rgb(219, 219, 219);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 20px;
+    background: #1B1B1B;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 2rem 8rem 2rem 2rem;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 30px;
+}
+
+.header-icons i {
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.header-icons .account {
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*color: #fff;*/
+}
+
+.header-icons .account img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+}
+
+/* Left side menubar section */
+
+.side_navbar {
+    background: #1b1b1b;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.side_navbar span {
+    color: gray;
+    margin: 1rem 3rem;
+    font-size: 12px;
+}
+
+.side_navbar a {
+    width: 100%;
+    padding: 0.8rem 3rem;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+}
+
+.links {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.links a {
+    font-size: 13px;
+}
+
+.side_navbar a:hover {
+    background: rgb(235, 235, 235);
+}
+
+.side_navbar .active {
+    border-left: 2px solid rgb(100, 100, 100);
+}
+
+/* Main Body Section */
+
+.main-body {
+    width: 70%;
+    padding: 1rem;
+}
+
+/* User dashboard */
+
+.promo_card {
+    width: 100%;
+    color: #fff;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 0.5rem 1rem 1rem 3rem;
+    background: rgb(37, 37, 37);
+}
+
+.promo_card h1, .promo_card span {
+    margin: 10px;
+}
+
+.promo_card button {
+    display: block;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Marketplace */
+
+.main-top {
+    display: flex;
+    width: 100%;
+}
+
+.main-top i {
+    position: absolute;
+    right: 0;
+    margin: 10px 30px;
+    color: rgb(110, 109, 109);
+    cursor: pointer;
+}
+
+.main .users {
+    display: flex;
+    width: 100%;
+}
+
+.users .card {
+    width: 25%;
+    margin: 10px;
+    background: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.users .card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.users .card h4 {
+    text-transform: uppercase;
+}
+
+.users .card p {
+    font-size: 12px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.users table {
+    margin: auto;
+}
+
+.users .per span {
+    padding: 5px;
+    border-radius: 10px;
+    background: rgb(223, 223, 223);
+}
+
+.users td {
+    font-size: 14px;
+    padding-right: 15px;
+}
+
+.users .card button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 7px;
+    cursor: pointer;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid #4AD489;
+}
+
+.users .card button:hover {
+    background: #4AD489;
+    color: #fff;
+    transition: 0.5s;
+}
+
+/*  All category section  */
+
+
+.all_categories_container {
+    text-transform: capitalize;
+    flex-grow: 1;
+    margin: 30px 30px;
+}
+
+.all_categories_list {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.all_categories_list h1 {
+    margin: 10px 5px;
+}
+
+.all_categories_table {
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+
+.all_categories_table thead tr {
+    color: #fff;
+    background: #1b1b1b;
+    text-align: left;
+    font-weight: bold;
+}
+
+.all_categories_table th,
+.all_categories_table td {
+    padding: 12px 15px;
+}
+
+.all_categories_table tbody tr {
+    border-bottom: 1px solid #ddd;
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+}
+
+/*.table tbody tr:nth-of-type(odd){*/
+/*    background: #f3f3f3;*/
+/*}*/
+.all_categories_table tbody tr.active {
+    /*font-weight: bold;*/
+    border-left: 2px solid rgb(100, 100, 100);
+}
+
+.all_categories_table tbody tr.hover {
+    /*font-weight: bold;*/
+    background: rgb(235, 235, 235);
+}
+
+
+.all_categories_table tbody tr:last-of-type {
+    border-bottom: 2px solid #1b1b1b;
+}
+
+.add-categories-btn {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    font-weight: bold;
+    border: 2px solid #1b1b1b;
+    color: #000;
+    display: inline-block;
+}
+
+.add-categories-btn:hover {
+    background: #1b1b1b;
+    transition: 0.5s;
+    color: #fff;
+
+}
+
+/*------------- Add product ------------ */
+
+.add-product-body {
+    flex-grow: 1;
+    background: #000;
+}
+
+.add-product-form {
+    border: 1px solid black;
+    color: #fff;
+    padding: 30px 40px;
+    background: #1b1b1b;
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.add-categories-form .field {
+    margin-top: 20px;
+}
+
+.field label {
+    display: block;
+    margin: 10px 10px 10px 0;
+}
+
+.field input, form button {
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 19px;
+    color: #868686;
+    padding: 0 15px;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #444;
+    caret-color: #339933;
+    background: linear-gradient(#333, #222);
+}
+
+.field select {
+    background: linear-gradient(#333, #222);
+    color: #fff;
+    padding: 5px;
+    font-size: initial;
+    margin-bottom: 15px;
+}
+
+.field select option {
+    margin: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+}
+
+.field textarea {
+    width: 100%;
+    background: linear-gradient(#333, #222);
+    color: #fff;
+    padding: 10px;
+}
+
+.field textarea::placeholder {
+    font-size: 16px;
+}
+
+.checkbox {
+    margin: 30px 10px 0 0;
+}
+
+.checkbox input {
+    margin-right: 10px;
+}
+
+.add-product-body input:focus {
+    color: #fff;
+    /*background: white;*/
+}
+
+.add-product-body button {
+    margin-top: 30px;
+    border-radius: 5px !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.add-product-body button:hover {
+    color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px rgba(255, 255, 255, .3),
+    0 0 10px rgba(255, 255, 255, .2),
+    0 0 15px rgba(255, 255, 255, .1),
+    0 2px 0 black;
+}
+

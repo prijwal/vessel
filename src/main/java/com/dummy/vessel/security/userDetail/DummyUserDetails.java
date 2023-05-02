@@ -1,10 +1,12 @@
-package com.dummy.vessel.das;
+package com.dummy.vessel.security.userDetail;
 
+import com.dummy.vessel.entities.Role;
 import com.dummy.vessel.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,13 +15,17 @@ public class DummyUserDetails implements UserDetails {
     private User user;
 
     public DummyUserDetails(User user) {
+        super();
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());
-        return List.of(simpleGrantedAuthority);
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        for (Role role : user.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(role.getRoleValue()));
+        }
+        return authorities;
     }
 
     @Override
@@ -34,7 +40,7 @@ public class DummyUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return user.isEnabled();
     }
 
     @Override

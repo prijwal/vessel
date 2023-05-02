@@ -1,14 +1,17 @@
 package com.dummy.vessel.security;
 
+import com.dummy.vessel.constants.enums;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfigFilterChain {
 
     @Autowired
@@ -16,10 +19,12 @@ public class SecurityConfigFilterChain {
 
     @Bean  // First thing Spring security looks for is this bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        System.out.println("#### 11111111111111111111111 ");
+
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/admin/**").hasRole("ROLE_ADMIN")
-                                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                        authorize.requestMatchers("/admin/**").hasAnyRole("ADMIN")
+                                .requestMatchers("/user/**").hasAnyRole("USER")
                                 .anyRequest().permitAll()
                 )
                 .formLogin(

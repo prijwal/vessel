@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="dummy_admins/admin_base::base_fragment(~{::section})">
+<section class="add-product-body">
+    <form class="add-product-form" action="#" th:action="@{/admin/add-products}" method="post"
+          th:object="${productDTO}">
+        <input type="hidden" name="id" th:field="${productDTO.id}"/>
+        <div class="field">
+            <label for="name">Name</label>
+            <input type="text" name="name" required th:field="${productDTO.name}" placeholder="Enter new product"
+                   id="name"/>
+        </div>
+
+        <div class="field">
+            <label for="select-category">Select Category</label>
+            <select class="" th:field="${productDTO.categoryId}" id="select-category" name="select-category">
+                <option th:each="category : ${categories}"
+                        th:value="${category.id}"
+                        th:text="${category.name}"
+                >
+                    #####
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+            <label for="price">Price</label>
+            <input type="number" name="price" required th:field="${productDTO.price}" placeholder="Enter price"
+                   id="price"/>
+        </div>
+
+        <div class="field">
+            <label for="description">Product description</label>
+            <textarea rows="5" name="description" required th:field="${productDTO.description}"
+                      placeholder="Enter description" id="description">######</textarea>
+        </div>
+
+        <button type="submit">submit</button>
+    </form>
+
+</section>
+</html>

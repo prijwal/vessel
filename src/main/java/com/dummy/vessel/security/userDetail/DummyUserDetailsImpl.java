@@ -1,5 +1,6 @@
-package com.dummy.vessel.das;
+package com.dummy.vessel.security.userDetail;
 
+import com.dummy.vessel.service.impl.UserDasImpl;
 import com.dummy.vessel.entities.User;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

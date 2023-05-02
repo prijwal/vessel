@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="dummy_users/user_base::base_fragment(~{::section})">
+<section class="add-categories-body">
+    <form class="add-categories-form" action="#" th:action="@{/admin/add-categories}" method="post" th:object="${category}">
+        <input type="hidden" name="id" th:field="${category.id}"/>
+        <div class="">
+            <label for="name">Name</label>
+            <input type="text" name="name" required th:field="${category.name}" placeholder="Enter new category" id="name"/>
+        </div>
+
+        <button type="submit">submit</button>
+    </form>
+
+</section>
+</html>

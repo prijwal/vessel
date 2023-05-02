@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="base_fragment(main_body)">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">####</title>
+    <link rel="stylesheet" th:href="@{/css/dummy_admins/admin_base.css}">
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="#">Dummy</a>
+    </div>
+
+    <div class="header-icons">
+        <div class="account">
+            <h4 th:text="${username}"></h4>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <nav>
+        <div class="side_navbar">
+            <span>Main Menu</span>
+            <a th:href="@{/admin/index}" href="#" class="active">Dashboard</a>
+            <a th:href="@{/admin/all-categories}" href="#">All Categories</a>
+            <a th:href="@{/admin/all-products}" href="#">All Products</a>
+            <a th:href="@{/admin/all-users}" href="#">All Users</a>
+            <a th:href="@{/logout}" href="#">Logout</a>
+
+        </div>
+    </nav>
+
+    <div th:replace="${main_body}"></div>
+</div>
+</body>
+</html>

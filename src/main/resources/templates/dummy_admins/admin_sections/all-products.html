@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="dummy_users/user_base::base_fragment(~{::section})">
+<html lang="en" th:replace="dummy_admins/admin_base::base_fragment(~{::section})">
 <section class="all_categories_container">
     <a th:href="@{add-products}" class="add-categories-btn"> Add products</a>
     <div class="all_categories_list">
@@ -10,23 +10,22 @@
                 <th>ID</th>
                 <th>products Name</th>
                 <th>Category</th>
-                <th>Preview</th>
                 <th>Delete</th>
                 <th>Update</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="products, iStat : ${products}">
+            <tr th:each="product, iStat : ${products}">
                 <td th:text="${iStat.index + 1}">##</td>
-                <td th:text="${products.name}">####</td>
-                <td th:text="${products.category.name}">####</td>
-                <td><img src="" alt=""/></td>
-
+                <td th:text="${product.name}">####</td>
+                <td th:text="${product.category.name}">####</td>
                 <td>
-                    <a href="#" th:href="@{delete-product/{id}(id = ${products.id})}" class="add-categories-btn">Delete</a>
+                    <a href="#" th:href="@{delete-product/{id}(id = ${product.id})}"
+                       class="add-categories-btn">Delete</a>
                 </td>
                 <td>
-                    <a href="#" th:href="@{update-product/{id}(id = ${products.id})}" class="add-categories-btn">Update</a>
+                    <a href="#" th:href="@{update-product/{id}(id = ${product.id})}"
+                       class="add-categories-btn">Update</a>
                 </td>
             </tr>
             </tbody>

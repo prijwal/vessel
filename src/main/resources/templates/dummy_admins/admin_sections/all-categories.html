@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="dummy_admins/admin_base::base_fragment(~{::section})">
+<section class="all_categories_container">
+    <a th:href="@{add-categories}" class="add-categories-btn"> Add categories</a>
+    <div class="all_categories_list">
+        <h1>All Category</h1>
+        <table class="all_categories_table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="category, iStat : ${category}">
+                <td th:text="${iStat.index + 1}">##</td>
+                <td th:text="${category.name}">####</td>
+
+                <td>
+                    <a href="#" th:href="@{delete-category/{id}(id = ${category.id})}"
+                       class="add-categories-btn">Delete</a>
+                </td>
+                <td>
+                    <a href="#" th:href="@{update-category/{id}(id = ${category.id})}"
+                       class="add-categories-btn">Update</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</html>

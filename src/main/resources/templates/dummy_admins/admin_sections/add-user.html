@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="dummy_admins/admin_base::base_fragment(~{::section})">
+<section class="add-product-body">
+    <form class="add-product-form" action="#" th:action="@{/admin/add-user}" method="post" th:object="${userDTO}">
+        <input type="hidden" name="id" th:field="${userDTO.id}"/>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="text" name="email" required th:field="${userDTO.email}" placeholder="Enter email" id="email"/>
+        </div>
+
+        <div class="field">
+            <label for="select-category">Select Role</label>
+            <select class="" th:field="${userDTO.roleId}" id="select-category" name="select-category">
+                <option th:each="role : ${roles}"
+                        th:value="${role.id}"
+                        th:text="${role.roleValue}"
+                >
+                    #####
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+            <label for="password">Password</label>
+            <!--            <input type="password" name="password" th:if="${updateUser}" th:field="${userDTO.password}"-->
+            <!--                   placeholder="Enter password" id="password"/>-->
+            <input type="password" name="password"
+                   th:field="${userDTO.password}"
+                   th:placeholder="${updateUser ? 'Enter new password' : 'Enter password'}"
+                   id="password"/>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" id="isEnabled" th:field="${userDTO.enabled}" name="isEnabled" value="isEnabled"
+                   checked="checked"/>
+            <label for="isEnabled"> is Enabled</label><br>
+        </div>
+
+
+        <button type="submit">submit</button>
+    </form>
+
+</section>
+</html>

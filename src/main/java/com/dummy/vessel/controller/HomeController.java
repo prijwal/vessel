@@ -1,7 +1,9 @@
 package com.dummy.vessel.controller;
 
-import com.dummy.vessel.dao.ProductRepository;
-import com.dummy.vessel.das.UserDasImpl;
+import com.dummy.vessel.constants.enums;
+import com.dummy.vessel.repository.ProductDao;
+import com.dummy.vessel.service.impl.UserDasImpl;
+import com.dummy.vessel.entities.Role;
 import com.dummy.vessel.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,6 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.Collection;
+import java.util.HashSet;
+
 
 @Controller
 public class HomeController {
@@ -21,7 +26,7 @@ public class HomeController {
     UserDasImpl userDasImpl;
 
     @Autowired
-    ProductRepository productRepository;
+    ProductDao productRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -60,10 +65,14 @@ public class HomeController {
     @PostMapping("/registerUser")
     public String doRegisterUser(@ModelAttribute("user") User user, Model m) {
         System.out.println("#### registering user");
-        System.out.println("######## user received is " + user.toString());
-        user.setRole("ROLE_USER");
+         Collection<Role> roles = new HashSet<>();
+        roles.add(enums.RoleType.USER.toRole());
+        user.setRoles(roles);
         user.setEnabled(true);
-        System.out.println("####### user password is  + " + user.getPassword());
+        String email = user.getEmail();
+        int index = email.indexOf('@');
+        String username = email.substring(0, index);
+        user.setUsername(username);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDasImpl.save(user);
         m.addAttribute("user", new User());
